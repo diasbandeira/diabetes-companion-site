@@ -60,14 +60,62 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
+## 🚀 Publicando no GitHub Pages
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+Este projeto está configurado para ser publicado no GitHub Pages sob a URL `https://diasbandeira.github.io/diabetes-companion-site`.
 
-## Can I connect a custom domain to my Lovable project?
+A configuração principal já foi feita no `vite.config.ts` com a propriedade `base: "/diabetes-companion-site/"`.
 
-Yes, you can!
+### Opção 1: Via GitHub Actions (Recomendado)
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+A maneira mais moderna e automática de publicar é usando o GitHub Actions. Siga os passos:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+1. Vá nas configurações do seu repositório no GitHub (`Settings` > `Pages`).
+2. Em **Build and deployment**, onde diz "Source", mude para **GitHub Actions**.
+3. Crie um arquivo no seu repositório local em `.github/workflows/deploy.yml` com o código abaixo, faça commit e push para a sua branch principal.
+
+```yaml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+```
+
+### Opção 2: Via terminal local (Manual)
+
+Se preferir publicar manualmente a partir do seu PC local usando a branch `gh-pages`:
+
+1. Instale o pacote `gh-pages`: `npm install -D gh-pages`
+2. Adicione ao `package.json` na sessão "scripts": `"deploy": "gh-pages -d dist"`
+3. Compile o projeto localmente: `npm run build`
+4. Publique rodando: `npm run deploy`
