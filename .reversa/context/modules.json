@@ -1,0 +1,278 @@
+{
+  "generated_at": "2026-11-02T22:20:38Z",
+  "modules": [
+    {
+      "name": "shell-e-navegação",
+      "path": "src",
+      "purpose": "Inicialização React, providers globais e roteamento da SPA.",
+      "primary_files": [
+        "index.html",
+        "src/main.tsx",
+        "src/App.tsx",
+        "src/pages/Index.tsx",
+        "src/pages/NotFound.tsx"
+      ],
+      "functions": [
+        {
+          "name": "App",
+          "file": "src/App.tsx",
+          "params": [],
+          "returns": "JSX.Element",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "NotFound",
+          "file": "src/pages/NotFound.tsx",
+          "params": [],
+          "returns": "JSX.Element",
+          "confidence": "confirmed"
+        }
+      ],
+      "entities": [],
+      "business_rules": [
+        {
+          "description": "A rota / apresenta a página principal; os demais caminhos usam a página NotFound.",
+          "location": "src/App.tsx",
+          "confidence": "confirmed"
+        }
+      ],
+      "dependencies": [
+        "cartão-de-saúde-do-paciente",
+        "componentes-de-interface"
+      ],
+      "algorithms": [],
+      "complexity": "low"
+    },
+    {
+      "name": "cartão-de-saúde-do-paciente",
+      "path": "src/components/patient",
+      "purpose": "Compor e apresentar dados estáticos de saúde, medicação e contato do paciente.",
+      "primary_files": [
+        "src/data/patientData.ts",
+        "src/pages/Index.tsx",
+        "src/components/patient/PatientHeader.tsx",
+        "src/components/patient/ConditionList.tsx",
+        "src/components/patient/HypoglycemiaGuide.tsx",
+        "src/components/patient/MedicationList.tsx",
+        "src/components/patient/EmergencyContact.tsx"
+      ],
+      "functions": [
+        {
+          "name": "Index",
+          "file": "src/pages/Index.tsx",
+          "params": [],
+          "returns": "JSX.Element",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "PatientHeader",
+          "file": "src/components/patient/PatientHeader.tsx",
+          "params": ["data: PatientData"],
+          "returns": "JSX.Element",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "ConditionList",
+          "file": "src/components/patient/ConditionList.tsx",
+          "params": ["conditions: string[]"],
+          "returns": "JSX.Element",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "HypoglycemiaGuide",
+          "file": "src/components/patient/HypoglycemiaGuide.tsx",
+          "params": ["data: HypoGuideProps.data"],
+          "returns": "JSX.Element",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "MedicationList",
+          "file": "src/components/patient/MedicationList.tsx",
+          "params": [
+            "medications: Medication[]",
+            "insulins: Insulin[]",
+            "correctionTable: CorrectionEntry[]"
+          ],
+          "returns": "JSX.Element",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "EmergencyContact",
+          "file": "src/components/patient/EmergencyContact.tsx",
+          "params": ["data: ContactProps.data"],
+          "returns": "JSX.Element",
+          "confidence": "confirmed"
+        }
+      ],
+      "entities": [
+        {
+          "name": "PatientData",
+          "fields": [
+            { "name": "name", "type": "string", "required": true },
+            { "name": "dob", "type": "string", "required": true },
+            { "name": "bloodType", "type": "string", "required": true },
+            { "name": "conditions", "type": "string[]", "required": true },
+            { "name": "emergencyContact", "type": "object", "required": true },
+            { "name": "hypoglycemia", "type": "object", "required": true },
+            { "name": "medications", "type": "Medication[]", "required": true },
+            { "name": "insulins", "type": "Insulin[]", "required": true },
+            { "name": "correctionTable", "type": "CorrectionEntry[]", "required": true }
+          ],
+          "confidence": "confirmed"
+        }
+      ],
+      "business_rules": [
+        {
+          "description": "O conteúdo é alimentado pelo objeto patientData local e apresentado sem edição ou sincronização.",
+          "location": "src/data/patientData.ts:30",
+          "confidence": "confirmed"
+        },
+        {
+          "description": "Cada elemento dos arrays recebidos é convertido em uma linha, badge ou item visual.",
+          "location": "src/components/patient/MedicationList.tsx:11",
+          "confidence": "confirmed"
+        },
+        {
+          "description": "O link de contato usa o campo formattedPhone no URI tel:.",
+          "location": "src/components/patient/EmergencyContact.tsx",
+          "confidence": "confirmed"
+        }
+      ],
+      "dependencies": [
+        "shell-e-navegação",
+        "componentes-de-interface"
+      ],
+      "algorithms": [],
+      "complexity": "low"
+    },
+    {
+      "name": "componentes-de-interface",
+      "path": "src/components/ui",
+      "purpose": "Fornecer componentes React reutilizáveis, estilizados com Tailwind e compostos sobre primitivas Radix.",
+      "primary_files": [
+        "src/components/ui/button.tsx",
+        "src/components/ui/badge.tsx",
+        "src/components/ui/card.tsx",
+        "src/components/ui/toast.tsx",
+        "src/components/ui/toaster.tsx",
+        "src/components/ui/sonner.tsx",
+        "src/components/ui/tooltip.tsx",
+        "src/components/ui/sidebar.tsx"
+      ],
+      "functions": [
+        {
+          "name": "Button",
+          "file": "src/components/ui/button.tsx",
+          "params": ["ButtonProps"],
+          "returns": "JSX.Element",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "Badge",
+          "file": "src/components/ui/badge.tsx",
+          "params": ["BadgeProps"],
+          "returns": "JSX.Element",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "Toaster",
+          "file": "src/components/ui/toaster.tsx",
+          "params": [],
+          "returns": "JSX.Element",
+          "confidence": "confirmed"
+        }
+      ],
+      "entities": [],
+      "business_rules": [],
+      "dependencies": [
+        "infraestrutura-compartilhada"
+      ],
+      "algorithms": [],
+      "complexity": "low"
+    },
+    {
+      "name": "infraestrutura-compartilhada",
+      "path": "src/hooks",
+      "purpose": "Disponibilizar utilitários de classes, detecção de viewport, adaptação de navegação e estado transitório de toast.",
+      "primary_files": [
+        "src/lib/utils.ts",
+        "src/hooks/use-mobile.tsx",
+        "src/hooks/use-toast.ts",
+        "src/components/NavLink.tsx",
+        "src/components/ui/use-toast.ts"
+      ],
+      "functions": [
+        {
+          "name": "cn",
+          "file": "src/lib/utils.ts",
+          "params": ["...inputs: ClassValue[]"],
+          "returns": "string",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "useIsMobile",
+          "file": "src/hooks/use-mobile.tsx",
+          "params": [],
+          "returns": "boolean",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "reducer",
+          "file": "src/hooks/use-toast.ts",
+          "params": ["state: State", "action: Action"],
+          "returns": "State",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "toast",
+          "file": "src/hooks/use-toast.ts",
+          "params": ["props: Toast"],
+          "returns": "{ id, dismiss, update }",
+          "confidence": "confirmed"
+        },
+        {
+          "name": "useToast",
+          "file": "src/hooks/use-toast.ts",
+          "params": [],
+          "returns": "State and toast actions",
+          "confidence": "confirmed"
+        }
+      ],
+      "entities": [
+        {
+          "name": "State",
+          "fields": [
+            { "name": "toasts", "type": "ToasterToast[]", "required": true }
+          ],
+          "confidence": "confirmed"
+        }
+      ],
+      "business_rules": [
+        {
+          "description": "A fila de toast contém no máximo um item.",
+          "location": "src/hooks/use-toast.ts:74",
+          "confidence": "confirmed"
+        },
+        {
+          "description": "O dismiss agenda remoção após TOAST_REMOVE_DELAY.",
+          "location": "src/hooks/use-toast.ts:55",
+          "confidence": "confirmed"
+        }
+      ],
+      "dependencies": [
+        "componentes-de-interface"
+      ],
+      "algorithms": [
+        {
+          "name": "Toast reducer",
+          "description": "Reduz ações ADD, UPDATE, DISMISS e REMOVE sobre estado em memória."
+        },
+        {
+          "name": "Class merge",
+          "description": "Combina classes condicionais e elimina conflitos de utilitários Tailwind."
+        }
+      ],
+      "complexity": "medium"
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "generated_at": "2026-11-02T22:13:00Z",
+  "project_root": "C:/Projetos/diabetes-companion-site",
+  "languages": [
+    {
+      "name": "TypeScript",
+      "extensions": [".ts", ".tsx"],
+      "file_count": 66
+    },
+    {
+      "name": "JavaScript",
+      "extensions": [".js"],
+      "file_count": 17
+    },
+    {
+      "name": "CSS",
+      "extensions": [".css"],
+      "file_count": 2
+    },
+    {
+      "name": "HTML",
+      "extensions": [".html"],
+      "file_count": 1
+    },
+    {
+      "name": "Python",
+      "extensions": [".py"],
+      "file_count": 12
+    }
+  ],
+  "primary_language": "TypeScript",
+  "frameworks": [
+    {
+      "name": "React",
+      "version": "18.3.1",
+      "source": "package.json"
+    },
+    {
+      "name": "Vite",
+      "version": "5.4.19",
+      "source": "package.json"
+    },
+    {
+      "name": "React Router DOM",
+      "version": "6.30.1",
+      "source": "package.json"
+    },
+    {
+      "name": "Tailwind CSS",
+      "version": "3.4.17",
+      "source": "package.json"
+    },
+    {
+      "name": "Vite PWA",
+      "version": "1.2.0",
+      "source": "package.json"
+    }
+  ],
+  "package_manager": "npm (package-lock.json); bun.lockb também está presente",
+  "entry_points": [
+    {
+      "path": "index.html",
+      "type": "document_entry"
+    },
+    {
+      "path": "src/main.tsx",
+      "type": "app_entry"
+    },
+    {
+      "path": "src/App.tsx",
+      "type": "router_and_app_root"
+    },
+    {
+      "path": "src/pages/Index.tsx",
+      "type": "main_page"
+    }
+  ],
+  "config_files": [
+    "package.json",
+    "package-lock.json",
+    "bun.lockb",
+    "vite.config.ts",
+    "tsconfig.json",
+    "tsconfig.app.json",
+    "tsconfig.node.json",
+    "tailwind.config.ts",
+    "postcss.config.js",
+    "eslint.config.js",
+    "components.json",
+    "index.html"
+  ],
+  "ci_cd": [
+    ".github/workflows/deploy.yml"
+  ],
+  "test_framework": "Nenhum identificado",
+  "test_file_count": 0,
+  "modules": [
+    "shell-e-navegacao",
+    "cartao-de-saude-do-paciente",
+    "componentes-de-interface",
+    "infraestrutura-compartilhada"
+  ],
+  "total_files": 1068,
+  "organization_suggestion": {
+    "granularity": "endpoint",
+    "rationale": "O roteamento da SPA está centralizado em src/App.tsx; a sugestão se refere às rotas de interface, não a uma API HTTP.",
+    "signals": [
+      {
+        "type": "centralized_client_side_routing",
+        "evidence": ["src/App.tsx"]
+      }
+    ]
+  }
+}
