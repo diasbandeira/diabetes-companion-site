@@ -1,0 +1,10 @@
+{
+  "schema-version": 1,
+  "feature-dir": "_reversa_forward/001-validar-prototipo-emergencia",
+  "feature-id": "001",
+  "short-name": "validar-prototipo-emergencia",
+  "started-at": "2026-11-03T10:31:20.223-03:00",
+  "current-stage": "to-do",
+  "stages-completed": ["requirements", "plan"],
+  "paused-features": []
+}
