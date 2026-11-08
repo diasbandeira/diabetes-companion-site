@@ -1,5 +1,5 @@
 {
   "version": 1,
   "allowLegacyEdits": true,
-  "allowedPaths": [".gitignore", ".opencode/**"]
+  "allowedPaths": [".gitignore", ".opencode/**", "src/**"]
 }
