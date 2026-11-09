@@ -27,3 +27,6 @@ dist-ssr
 /.agents/skills/
 /.claude/skills/
 /.kiro/skills/
+
+# Reversa personal config
+/.reversa/config.user.toml
